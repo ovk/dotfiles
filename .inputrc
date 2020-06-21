@@ -1,0 +1,65 @@
+# Use more intelligent history navigation, that takes prefix into account
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Color files in completion by type
+set colored-stats on
+
+# Highlight common prefix
+set colored-completion-prefix on
+
+# Single tab completion
+set show-all-if-ambiguous on
+
+# Do not complete dotfiles unless the pattern begins with a dot
+set match-hidden-files off
+
+# Try to preserve cursor position when navigating the history
+set history-preserve-point on
+
+# Navigate through completion options with c-n/c-p
+"\C-n": menu-complete
+"\C-p": menu-complete-backward
+
+# Do not use "more" to show long completion lists
+set page-completions off
+
+# Skip already completed text after the cursor
+set skip-completed-text on
+
+# Disable bell
+set bell-style none
+
+# Allow proper UTF-8
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Some defaults for Emacs mode
+$if mode=emacs
+
+# Allow the use of the Home/End keys
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# Allow the use of the Delete key
+"\e[3~": delete-char
+
+# Mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+"\eOD": backward-word
+"\eOC": forward-word
+
+$if term=rxvt
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+"\eOc": forward-word
+"\eOd": backward-word
+$endif
+
+$endif
