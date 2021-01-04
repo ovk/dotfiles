@@ -1,0 +1,82 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": [ "sway/workspaces", "sway/mode" ],
+    "modules-center": [ "sway/window" ],
+    "modules-right": [ "memory", "cpu", "tray", "pulseaudio", "battery", "sway/language", "clock" ],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1:term": "",
+            "2:web": "",
+            "3:email": "",
+            "4:im": "",
+            "5:dev": "",
+            "6:music": "",
+	    "7:graph": "",
+	    "8:any": "",
+	    "9:any": "",
+	    "10:aux": ""
+        }
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 12
+    },
+
+    "memory": {
+        "format": "{percentage:3}% ",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "cpu": {
+        "format": "{usage:3}% ",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [ "" ]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob",
+        "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-charging": " {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "notify-send -u low -t 3000 'Battery Status' \"$(acpi)\""
+    },
+
+    "clock": {
+        "format-alt": "{:%A, %B %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    }
+}

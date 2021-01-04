@@ -1,0 +1,9 @@
+[options]
+background = #2e3440
+overlay_font = sans-serif:14
+overlay_background_alpha = 00
+
+[binds]
+<Shift+H> = prev
+<Shift+L> = next
+

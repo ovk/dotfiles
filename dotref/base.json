@@ -1,0 +1,17 @@
+{
+  "vars": {
+    "git_name": "ovk",
+    "git_key": "6A61296702850A3C",
+    "email": "mail@okosh.xyz"
+  },
+  "link": [
+    { "src": "dir_colors", "dst": "~/.dir_colors" },
+    { "src": "fish", "dst": "~/.config/fish" },
+    { "src": "git", "dst": "~/.config/git" },
+    { "src": "tig", "dst": "~/.config/tig" },
+    { "src": "tmux", "dst": "~/.config/tmux" },
+    { "src": "htop", "dst": "~/.config/htop" },
+    { "src": "vifm", "dst": "~/.config/vifm" }
+  ]
+}
+

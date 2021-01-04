@@ -1,0 +1,24 @@
+{
+  "extends": [ "base" ],
+  "vars": {
+    "sway_config_extra": ""
+  },
+  "link": [
+    { "src": "pam_environment", "dst": "~/.pam_environment" },
+    { "src": "mimeapps.list", "dst": "~/.config/mimeapps.list" },
+    { "src": "newsboat", "dst": "~/.config/newsboat" },
+    { "src": "mako", "dst": "~/.config/mako" },
+    { "src": "fontconfig", "dst": "~/.config/fontconfig" },
+    { "src": "foot", "dst": "~/.config/foot" },
+    { "src": "wofi", "dst": "~/.config/wofi" },
+    { "src": "waybar", "dst": "~/.config/waybar" },
+    { "src": "sway", "dst": "~/.config/sway" },
+    { "src": "swaylock", "dst": "~/.config/swaylock" },
+    { "src": "imv", "dst": "~/.config/imv" },
+    { "src": "gtkrc-2.0", "dst": "~/.gtkrc-2.0" },
+    { "src": "gtk-3.0", "dst": "~/.config/gtk-3.0" },
+    { "src": "qt5ct", "dst": "~/.config/qt5ct" },
+    { "src": "Kvantum", "dst": "~/.config/Kvantum" }
+  ]
+}
+

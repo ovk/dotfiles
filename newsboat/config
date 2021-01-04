@@ -1,0 +1,40 @@
+cache-file "/mnt/nfs/newsboat/cache.db"
+
+auto-reload no
+text-width 70
+reload-threads 12
+
+browser firefox
+datetime-format "%b %d, %Y %R"
+
+# Vi style vindings
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+unbind-key ^D
+unbind-key ^U
+unbind-key g
+unbind-key G
+
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key ^D pagedown
+bind-key ^U pageup
+bind-key g home
+bind-key G end
+
+# Some adjustments for Nord color theme
+color listfocus             white   black   bold
+color listfocus_unread      yellow  black   bold
+color listnormal_unread     yellow  default
+color info                  white   color8
+
+# Highlights
+highlight article "^(Feed|Link):.*$" color6 default bold
+highlight article "^(Title|Date|Author):.*$" color6 default bold
+highlight article "https?://[^ ]+" color6 default underline
+highlight article "\\[[0-9]+\\]" color10 default bold
+highlight article "\\[image\\ [0-9]+\\]" color12 default bold

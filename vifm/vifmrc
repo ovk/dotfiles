@@ -1,0 +1,172 @@
+" Command to start vi
+set vicmd=nvim
+
+" Perform file operations without using command-line utilities
+set syscalls
+
+" Disable trash
+set notrash
+
+" Number of directories to store in the directory history
+set history=100
+
+" Don't follow file links on enter
+set nofollowlinks
+
+" Natural sort of (version) numbers within text
+set sortnumbers
+
+" Maximum number of changes that can be undone
+set undolevels=100
+
+" Use Vim's format of help file (has highlighting and "hyperlinks")
+set vimhelp
+
+" Don't run executables on enter
+set norunexec
+
+" Nord-inspired colorscheme
+colorscheme nord
+
+" Format for displaying time
+set timefmt="%b %e, %Y %H:%M:%S"
+
+" Show list of matches on tab completion in command-line mode
+set wildmenu
+
+" Show list of matches on tab completion in command-line mode
+set wildstyle=bar
+
+" Display suggestions in normal, visual and view modes for keys, marks and
+" registers (at most 5 files).  In other view, when available.
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+" Ignore case in search unless it contains at least one uppercase letter
+set ignorecase
+set smartcase
+
+" Highlight search results automatically
+set hlsearch
+
+" Use increment searching (search while typing)
+set incsearch
+
+" Try to leave some space from cursor to upper/lower border in lists
+set scrolloff=3
+
+" Don't do too many requests to slow file systems
+if !has('win')
+    set slowfs=curlftpfs
+endif
+
+" Set custom status line look
+set statusline=" %t %= %21d %u:%g %A %10E "
+
+" Set custom ruler format
+set rulerformat="%l/%S (%L)"
+
+" Appends / to folder names
+set classify=:dir:/
+
+" Customize columns
+set viewcolumns="-{name}..,9{uname},9{gname},12{perms},7{size}"
+
+" ------------------------------------------------------------------------------
+" Some permanent marks
+mark h ~/
+mark r /
+mark n /mnt/nfs
+
+" ------------------------------------------------------------------------------
+" Exclude some folders from find
+set findprg='find %s %a -print , -type d \( ! -readable -o ! -executable -o -path "*/.git" -o -path "*/node_modules" \) -prune'
+
+" Exclude some folders from grep
+set grepprg='grep -n -H -I -r --exclude-dir=.git --exclude-dir=node_modules %i %a %s'
+
+" Some cusstom commands
+command! run !! ./%f
+command! diff nvim -d %f %F
+command! zip zip -r %a.zip %f %m
+command! tar tar -cvf %a.tar %f %m
+command! tgz tar -cvzf %a.tar.gz %f %m
+command! unzip unzip %c -d %c:r %m
+command! untar mkdir %c:r && tar -xvf %c -C %c:r %m
+command! untgz mkdir %c:r && tar -xvzf %c -C %c:r %m
+
+" ------------------------------------------------------------------------------
+" File previews
+fileviewer *.pdf pdftotext -nopgbrk %c -
+fileviewer *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus file
+fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+           \*.as[fx]},
+           \<video/*>
+           \ ffprobe -pretty %c 2>&1
+fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
+fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
+fileviewer *.tgz,*.tar.gz tar -tzf %c
+fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
+fileviewer *.tar.txz,*.txz xz --list %c
+fileviewer {*.tar},<application/x-tar> tar -tf %c
+fileviewer {*.rar},<application/x-rar> unrar v %c
+fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
+fileviewer {*.doc,*.docx,*.odt},
+           \<application/vnd.openxmlformats-officedocument.wordprocessingml.document>
+           \<application/msword>
+           \ file
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+         \ show-sixel %c %pw %ph %pd
+
+" Everything else preview in highlight
+fileviewer * highlight -O ansi -s nord %c
+
+" ------------------------------------------------------------------------------
+" File open
+
+" FuseZipMount
+filetype {*.zip,*.jar,*.war,*.ear,*.oxt,*.apkg},
+         \<application/zip,application/java-archive>
+         \ {Mount with fuse-zip}
+         \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR
+
+" ArchiveMount
+filetype {*.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz},
+         \<application/x-tar>
+         \ {Mount with archivemount}
+         \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
+
+" IsoMount
+filetype {*.iso},<application/x-iso9660-image>
+         \ {Mount with fuseiso}
+         \ FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR,
+
+" SshMount
+filetype *.ssh
+       \ {Mount with sshfs}
+       \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND,
+
+" Everything else open with xdg-open
+filetype * xdg-open
+
+" ------------------------------------------------------------------------------
+" What should be saved automatically between vifm sessions
+set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+
+" ------------------------------------------------------------------------------
+" Mappings
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+
+" Open file in the background using its default program
+nnoremap gb :file &<cr>l
+
+" Some standard two-panel file managers mappings
+nnoremap <f5> :copy<cr>
+nnoremap <f6> :move<cr>
+

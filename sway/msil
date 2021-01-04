@@ -1,0 +1,4 @@
+# Settings specific to MSI laptop
+workspace 10:aux output eDP-1
+workspace 1:term
+

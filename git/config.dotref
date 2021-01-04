@@ -3,7 +3,7 @@
     whitespace = warn
 
 [core]
-    editor = vim
+    editor = nvim
     whitespace = trailing-space,-space-before-tab
 
     # Convert CRLF to LF on commit
@@ -12,13 +12,12 @@
 [diff]
     algorithm = histogram
     renames = copies
-    tool = vimdiff
-
-[merge]
-    tool = vimdiff
 
 [push]
     default = simple
+
+[pull]
+    rebase = true
 
 [log]
     decorate = short
@@ -27,3 +26,10 @@
 [pretty]
     dense = '%C(bold green)%h%Creset: %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset'
 
+[user]
+    name = $git_name
+    email = $email
+    signingKey = $git_key
+
+[commit]
+    gpgsign = true

@@ -1,0 +1,10 @@
+allow_images=true
+allow_markup=true
+insensitive=true
+hide_scroll=true
+no_actions=true
+term=foot
+width=35%
+lines=8
+always_parse_args=true
+
