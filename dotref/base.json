@@ -11,7 +11,8 @@
     { "src": "tig", "dst": "~/.config/tig" },
     { "src": "tmux", "dst": "~/.config/tmux" },
     { "src": "htop", "dst": "~/.config/htop" },
-    { "src": "vifm", "dst": "~/.config/vifm" }
+    { "src": "vifm", "dst": "~/.config/vifm" },
+    { "src": "nvim", "dst": "~/.config/nvim" }
   ]
 }
 
