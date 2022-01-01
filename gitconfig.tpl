@@ -27,9 +27,11 @@
     dense = '%C(bold green)%h%Creset: %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset'
 
 [user]
-    name = $git_name
-    email = $email
-    signingKey = $git_key
+    name = ovk
+    email = mail@okosh.xyz
+    signingKey = 6A61296702850A3C
 
 [commit]
     gpgsign = true
+[rebase]
+	autoStash = true

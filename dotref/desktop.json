@@ -19,6 +19,9 @@
     { "src": "gtk-3.0", "dst": "~/.config/gtk-3.0" },
     { "src": "qt5ct", "dst": "~/.config/qt5ct" },
     { "src": "Kvantum", "dst": "~/.config/Kvantum" }
+  ],
+  "template": [
+    { "src": "sway/device-specific.tpl", "dst": "sway/device-specific" }
   ]
 }
 
