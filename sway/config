@@ -104,6 +104,7 @@ bindsym --to-code $mod+Shift+e mode $mode_exit
 
 # Screenshot
 bindsym print exec grim
+bindsym Ctrl+print exec slurp | grim -g -
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
