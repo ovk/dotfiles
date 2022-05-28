@@ -286,6 +286,8 @@ exec mkfifo $SWAYSOCK.wob && \
 exec mako
 exec nm-applet --indicator
 #exec --no-startup-id blueman-applet
-exec dex -a -s ~/.config/autostart/
+
+# Many apps have tray icons, so wait for tray to be ready before starting them
+exec "gdbus wait --session org.kde.StatusNotifierWatcher && dex -a -s ~/.config/autostart/"
 
 include /etc/sway/config.d/*
