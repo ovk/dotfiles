@@ -1,25 +1,24 @@
--- FIXME: rewrite this when Lua support for augroup/autocmd is available
--- see https://github.com/neovim/neovim/pull/14661
+local utils = require('functions')
 
--- Disable automatic comment insertion
-vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
+-- File type specific options
+local ft_opts_grp = vim.api.nvim_create_augroup('ft_opts_grp', { clear = true })
 
--- Set tab with to two for some file types
-vim.cmd [[autocmd FileType yaml :setlocal tabstop=2 softtabstop=2 shiftwidth=2]]
+vim.api.nvim_create_autocmd('FileType', { pattern = 'yaml', group = ft_opts_grp, callback = function ()
+    utils.set_tab_width(2)
+end })
 
 -- Highlight yanked text
-vim.cmd [[
-augroup yank_highlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
-augroup END
-]]
+local hl_yank_grp = vim.api.nvim_create_augroup('hl_yank_grp', { clear = true })
 
--- Remove trailing whitespaces on save
-vim.cmd [[
-augroup remove_trailing_space
-    autocmd!
-    autocmd BufWritePre * silent! lua RemoveTrailingWhitespace()
-augroup END
-]]
+vim.api.nvim_create_autocmd('TextYankPost', { group = hl_yank_grp, callback = function ()
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 700 })
+end })
+
+
+-- Remove trailing white spaces on buffer save
+local rm_trailing_ws_grp = vim.api.nvim_create_augroup('rm_trailing_ws_grp', { clear = true })
+
+vim.api.nvim_create_autocmd('BufWritePre', { group = rm_trailing_ws_grp, callback = function ()
+    utils.remove_trailing_whitespace()
+end })
 
