@@ -14,7 +14,6 @@ vim.api.nvim_create_autocmd('TextYankPost', { group = hl_yank_grp, callback = fu
     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 700 })
 end })
 
-
 -- Remove trailing white spaces on buffer save
 local rm_trailing_ws_grp = vim.api.nvim_create_augroup('rm_trailing_ws_grp', { clear = true })
 

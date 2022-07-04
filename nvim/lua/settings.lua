@@ -20,12 +20,16 @@ vim.o.nrformats      = 'bin,hex,alpha'    -- Number formats for increment/decrem
 vim.o.backspace      = 'indent,eol,start' -- Backspace deletes across lines and indents
 vim.o.history        = 100                -- History size
 vim.o.matchpairs     = '(:),{:},[:],<:>'  -- Characters that form pairs
-vim.o.completeopt    = 'menuone,noselect,noinsert'
-vim.o.sessionoptions = 'globals,curdir,buffers,winsize,tabpages,folds,slash,unix'
+vim.o.clipboard      = 'unnamedplus'      -- Use '+' register for clipboard
+
+vim.o.completeopt    = 'menu,menuone,noselect'
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
 vim.o.diffopt        = 'internal,filler,algorithm:histogram,indent-heuristic'
+vim.o.wildignore     = '*.o,*~,*.pyc,*pycache*,node_modules'
+vim.o.wildmode       = 'longest:full'
 
 -------------------------------------------------------------------------------
---Spaces & Tabs
+-- Spaces, Tabs, Indent
 -------------------------------------------------------------------------------
 vim.o.tabstop     = 4     -- Number of visual spaces per tab
 vim.o.softtabstop = 4     -- Number of spaces in tab
@@ -33,6 +37,7 @@ vim.o.shiftwidth  = 4     -- Indent width
 vim.o.shiftround  = true  -- Round indents to specified indent width
 vim.o.expandtab   = true  -- Use spaces for tabs
 vim.o.joinspaces  = false -- Use one space (not two) after punctuation and when joining
+vim.o.breakindent = true  -- Preserve indentation for wrapped lines
 
 -------------------------------------------------------------------------------
 -- Searching & Replacing
