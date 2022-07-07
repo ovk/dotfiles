@@ -7,6 +7,10 @@ vim.api.nvim_create_autocmd('FileType', { pattern = 'yaml', group = ft_opts_grp,
     utils.set_tab_width(2)
 end })
 
+vim.api.nvim_create_autocmd('FileType', { pattern = 'go', group = ft_opts_grp, callback = function ()
+    vim.api.nvim_buf_set_option(0, 'expandtab', false)
+end })
+
 -- Highlight yanked text
 local hl_yank_grp = vim.api.nvim_create_augroup('hl_yank_grp', { clear = true })
 
