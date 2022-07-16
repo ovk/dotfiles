@@ -78,9 +78,9 @@ packer.startup({ function()
 
     -- nvim-autopairs
     use {
-        "windwp/nvim-autopairs",
+        'windwp/nvim-autopairs',
         config = function()
-            require("nvim-autopairs").setup()
+            require('nvim-autopairs').setup()
         end
     }
 
@@ -105,6 +105,9 @@ packer.startup({ function()
         'rcarriga/nvim-dap-ui',
         requires = { 'mfussenegger/nvim-dap' }
     }
+
+    -- aerial.nvim (outline)
+    use 'stevearc/aerial.nvim'
 
 end,
     config = {

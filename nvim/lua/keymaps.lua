@@ -41,6 +41,11 @@ end
 -- Close current buffer preserving windows layout
 lmap('n', '<C-Bs>', utils.close_current_buffer, { noremap = true, silent = true })
 
+-- Aerial
+function ovk_aerial_keymap(bufnr)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lo', '<cmd>AerialToggle!<cr>', {})
+end
+
 -- LSP mappings
 function ovk_setup_lsp_keymap(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
