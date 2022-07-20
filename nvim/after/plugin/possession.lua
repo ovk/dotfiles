@@ -14,7 +14,16 @@ possession.setup({
             hooks = {
             }
         },
-        delete_buffers = true
+        delete_buffers = true,
+        close_windows = {
+            hooks = { 'before_save', 'before_load' },
+            preserve_layout = false,
+            match = {
+                floating = true,
+                buftype = {},
+                filetype = { 'aerial'}
+            }
+        },
     }
 })
 
