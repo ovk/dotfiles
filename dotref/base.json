@@ -1,8 +1,6 @@
 {
   "vars": {
-    "git_name": "ovk",
-    "git_key": "6A61296702850A3C",
-    "email": "mail@okosh.xyz"
+    "git_profile": "personal"
   },
   "create": [
       { "name": "~/.config/git" }
@@ -14,10 +12,12 @@
     { "src": "tmux", "dst": "~/.config/tmux" },
     { "src": "htop", "dst": "~/.config/htop" },
     { "src": "vifm", "dst": "~/.config/vifm" },
-    { "src": "nvim", "dst": "~/.config/nvim" }
+    { "src": "nvim", "dst": "~/.config/nvim" },
+    { "src": "git/personal", "dst": "~/.config/git/personal" },
+    { "src": "git/work", "dst": "~/.config/git/work" }
   ],
   "template": [
-    { "src": "gitconfig.tpl", "dst": "~/.config/git/config" }
+    { "src": "git/config.tpl", "dst": "~/.config/git/config" }
   ]
 }
 

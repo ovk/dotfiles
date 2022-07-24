@@ -26,12 +26,12 @@
 [pretty]
     dense = '%C(bold green)%h%Creset: %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset'
 
-[user]
-    name = ovk
-    email = mail@okosh.xyz
-    signingKey = 6A61296702850A3C
+[rebase]
+	autoStash = true
 
 [commit]
     gpgsign = true
-[rebase]
-	autoStash = true
+
+[include]
+    path = ~/.config/git/$git_profile
+

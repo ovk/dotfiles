@@ -275,7 +275,7 @@ for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
 for_window [app_id="thunderbird" title=".*Reminder"] floating enable
 
 # Include extra device-specific settings
-include $HOME/.config/sway/device-specific
+include $HOME/.config/sway/extra
 
 # Startup
 exec mkfifo $SWAYSOCK.wob && \

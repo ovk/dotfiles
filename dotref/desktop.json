@@ -21,7 +21,7 @@
     { "src": "Kvantum", "dst": "~/.config/Kvantum" }
   ],
   "template": [
-    { "src": "sway/device-specific.tpl", "dst": "sway/device-specific" }
+    { "src": "sway/extra.tpl", "dst": "sway/extra" }
   ]
 }
 

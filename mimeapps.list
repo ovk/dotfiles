@@ -20,6 +20,7 @@ image/jpg=imv.desktop
 image/pjpeg=imv.desktop
 image/png=imv.desktop
 image/tiff=imv.desktop
+x-scheme-handler/mailto=thunderbird.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -33,3 +34,4 @@ application/x-extension-shtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
+text/plain=thunderbird.desktop;
