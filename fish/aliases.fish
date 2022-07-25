@@ -14,17 +14,17 @@ alias rm='rm -I'
 
 # nb -> newsboat
 if not type -q nb; and type -q newsboat
-  alias nb=newsboat
+    alias nb=newsboat
 end
 
 # k -> kubecolor | kubectl
 if not type -q k
-  if type -q kubecolor
-    function k --wraps kubectl
-      kubecolor $argv
+    if type -q kubecolor
+        function k --wraps kubectl
+            kubecolor $argv
+        end
+    else if type -q kubectl
+        alias k=kubectl
     end
-  else if type -q kubectl
-    alias k=kubectl
-  end
 end
 

@@ -6,6 +6,7 @@
       { "name": "~/.config/git" }
   ],
   "link": [
+    { "src": "profile", "dst": "~/.profile" },
     { "src": "dir_colors", "dst": "~/.dir_colors" },
     { "src": "fish", "dst": "~/.config/fish" },
     { "src": "tig", "dst": "~/.config/tig" },
