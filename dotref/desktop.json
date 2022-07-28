@@ -4,7 +4,6 @@
     "sway_config_extra": ""
   },
   "link": [
-    { "src": "pam_environment", "dst": "~/.pam_environment" },
     { "src": "mimeapps.list", "dst": "~/.config/mimeapps.list" },
     { "src": "newsboat", "dst": "~/.config/newsboat" },
     { "src": "mako", "dst": "~/.config/mako" },
