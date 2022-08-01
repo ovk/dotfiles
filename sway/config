@@ -259,7 +259,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Assignments
 assign [app_id="firefox"] 2:web
 assign [app_id="thunderbird"] 3:email
-assign [class="Signal"] 4:im
+assign [title="Signal"] 4:im
 assign [app_id="telegramdesktop"] 4:im
 assign [class="Skype"] 4:im
 assign [app_id="audacious"] 6:music
