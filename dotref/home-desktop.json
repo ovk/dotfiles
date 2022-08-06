@@ -1,0 +1,6 @@
+{
+  "link": [
+    { "src": "newsboat", "dst": "~/.config/newsboat" }
+  ]
+}
+

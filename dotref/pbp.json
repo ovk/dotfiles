@@ -1,4 +1,4 @@
 {
-  "extends": [ "desktop" ]
+  "extends": [ "desktop", "home-desktop" ]
 }
 
