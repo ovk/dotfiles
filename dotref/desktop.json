@@ -8,7 +8,6 @@
   ],
   "link": [
     { "src": "mimeapps.list", "dst": "~/.config/mimeapps.list" },
-    { "src": "newsboat", "dst": "~/.config/newsboat" },
     { "src": "mako", "dst": "~/.config/mako" },
     { "src": "fontconfig", "dst": "~/.config/fontconfig" },
     { "src": "foot", "dst": "~/.config/foot" },
