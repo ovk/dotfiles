@@ -3,6 +3,9 @@
   "vars": {
     "sway_config_extra": ""
   },
+  "create": [
+    { "name": "~/.config/gtk-2.0", "mode": "700" }
+  ],
   "link": [
     { "src": "mimeapps.list", "dst": "~/.config/mimeapps.list" },
     { "src": "newsboat", "dst": "~/.config/newsboat" },
@@ -14,7 +17,7 @@
     { "src": "sway", "dst": "~/.config/sway" },
     { "src": "swaylock", "dst": "~/.config/swaylock" },
     { "src": "imv", "dst": "~/.config/imv" },
-    { "src": "gtkrc-2.0", "dst": "~/.gtkrc-2.0" },
+    { "src": "gtkrc-2.0", "dst": "~/.config/gtk-2.0/gtkrc" },
     { "src": "gtk-3.0", "dst": "~/.config/gtk-3.0" },
     { "src": "qt5ct", "dst": "~/.config/qt5ct" },
     { "src": "Kvantum", "dst": "~/.config/Kvantum" }
