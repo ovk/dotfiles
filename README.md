@@ -18,9 +18,10 @@ for distros that contain outdated software by default (like Debian or Ubuntu).
 
 ![image](https://user-images.githubusercontent.com/693072/183305677-5b1fad7c-e3be-4b4c-aadb-f1c3b151bb17.png)
 
-![image](https://user-images.githubusercontent.com/693072/183305650-dbde3e3e-717e-41f5-b288-6262d2b0110b.png)
+![image](https://user-images.githubusercontent.com/693072/183305720-90b30627-495f-40fb-a34a-a8406d1a0408.png)
 
-![image](https://user-images.githubusercontent.com/693072/183305662-00c1d163-1e2e-4cdb-82cd-4cd20ed3c54f.png)
+![image](https://user-images.githubusercontent.com/693072/183305731-60b1f1a2-a49e-40d6-a20a-1fb24207b30f.png)
+
 
 ## Included configuration
 
