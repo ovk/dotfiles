@@ -14,7 +14,19 @@ which is a simple Python tool that I created to help me manage dotfiles for mult
 recent versions. While this is usually not a problem for Arch based distros, it may not work
 for distros that contain outdated software by default (like Debian or Ubuntu).
 
+### Screenshots
+
+![image](https://user-images.githubusercontent.com/693072/183305677-5b1fad7c-e3be-4b4c-aadb-f1c3b151bb17.png)
+
+![image](https://user-images.githubusercontent.com/693072/183305650-dbde3e3e-717e-41f5-b288-6262d2b0110b.png)
+
+![image](https://user-images.githubusercontent.com/693072/183305662-00c1d163-1e2e-4cdb-82cd-4cd20ed3c54f.png)
+
 ## Included configuration
+
+### Colors
+
+In general, Nord-like low contrast colors are used in most places (except GTK and Qt themes, see below).
 
 ### Basic tools
 
