@@ -5,13 +5,22 @@ if not present then
 end
 
 -- C++
-lspconfig.ccls.setup({ on_attach = ovk_setup_lsp_keymap })
+lspconfig.clangd.setup({ on_attach = ovk_setup_lsp_keymap })
 
 -- Go
 lspconfig.gopls.setup({ on_attach = ovk_setup_lsp_keymap })
 
 -- Python
 lspconfig.pyright.setup({ on_attach = ovk_setup_lsp_keymap })
+
+-- JavaScript, TypeScript
+lspconfig.tsserver.setup({ on_attach = ovk_setup_lsp_keymap })
+
+-- YAML
+lspconfig.yamlls.setup({ on_attach = ovk_setup_lsp_keymap })
+
+-- Terraform
+lspconfig.tflint.setup({ on_attach = ovk_setup_lsp_keymap })
 
 -- Diagnostic icons
 local signs = { Error = '', Warn = '', Hint = '', Info = '' }

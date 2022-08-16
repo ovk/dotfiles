@@ -4,6 +4,8 @@ if not present then
     return
 end
 
+local regular_style = { bold = false, italic = false, underline = false, undercurl = false }
+
 bufferline.setup({
     options = {
         numbers = 'ordinal',
@@ -20,16 +22,16 @@ bufferline.setup({
         show_close_icon = false
     },
     highlights = {
-        buffer_selected = { gui = 'none' },
-        numbers_selected = { gui = 'none' },
-        diagnostic_selected = { gui = 'none' },
-        info_selected = { gui = 'none' },
-        info_selected = { gui = 'none' },
-        info_diagnostic_selected = { gui = 'none' },
-        warning_selected = { gui = 'none' },
-        warning_diagnostic_selected = { gui = 'none' },
-        error_selected = { gui = 'none' },
-        error_diagnostic_selected = { gui = 'none' },
+        buffer_selected = regular_style,
+        numbers_selected = regular_style,
+        diagnostic_selected = regular_style,
+        info_selected = regular_style,
+        info_selected = regular_style,
+        info_diagnostic_selected = regular_style,
+        warning_selected = regular_style,
+        warning_diagnostic_selected = regular_style,
+        error_selected = regular_style,
+        error_diagnostic_selected = regular_style,
     },
 })
 

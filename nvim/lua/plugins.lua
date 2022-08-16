@@ -109,6 +109,9 @@ packer.startup({ function()
     -- aerial.nvim (outline)
     use 'stevearc/aerial.nvim'
 
+    -- mason.nvim (package manager)
+    use 'williamboman/mason.nvim'
+
 end,
     config = {
         display = {
