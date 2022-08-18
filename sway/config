@@ -55,6 +55,9 @@ client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a #434c5e
 client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a #434c5e
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb #ebcb8b
 
+gaps inner 5
+smart_gaps on
+
 ### Key bindings
 
 ## Basics
