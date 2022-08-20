@@ -10,9 +10,10 @@ This repository contains my dotfiles (those that can be safely shared).
 Dotfiles are managed with [dotref](https://github.com/ovk/dotref) tool,
 which is a simple Python tool that I created to help me manage dotfiles for multiple devices.
 
-**Important:** please note, that many dotfiles in this repo require software to be on the most
-recent versions. While this is usually not a problem for Arch based distros, it may not work
-for distros that contain outdated software by default (like Debian or Ubuntu).
+> **Note**
+> Many dotfiles in this repo require software to be on the most recent versions.
+> While this is usually not a problem for distros like Arch, it may not work
+> for distros that contain outdated software by default (like Debian or Ubuntu).
 
 ### Screenshots
 
