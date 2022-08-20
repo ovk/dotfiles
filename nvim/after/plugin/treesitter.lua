@@ -21,6 +21,7 @@ nvimtreesitter.setup({
         'css',
         'json',
         'yaml',
+        'hcl',
         'markdown',
         'dockerfile',
         'make',
