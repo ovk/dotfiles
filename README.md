@@ -11,18 +11,18 @@ Dotfiles are managed with [dotref](https://github.com/ovk/dotref) tool,
 which is a simple Python tool that I created to help me manage dotfiles for multiple devices.
 
 > **Note**
+>
 > Many dotfiles in this repo require software to be on the most recent versions.
 > While this is usually not a problem for distros like Arch, it may not work
 > for distros that contain outdated software by default (like Debian or Ubuntu).
 
 ### Screenshots
 
-![image](https://user-images.githubusercontent.com/693072/183305677-5b1fad7c-e3be-4b4c-aadb-f1c3b151bb17.png)
+![image](https://user-images.githubusercontent.com/693072/185769726-b8eeb07b-0938-4720-be8e-daf404bc6ee6.png)
 
-![image](https://user-images.githubusercontent.com/693072/183305720-90b30627-495f-40fb-a34a-a8406d1a0408.png)
+![image](https://user-images.githubusercontent.com/693072/185769737-782ba3b6-ef67-47d7-8c1b-58602f1beb0c.png)
 
-![image](https://user-images.githubusercontent.com/693072/183305731-60b1f1a2-a49e-40d6-a20a-1fb24207b30f.png)
-
+![image](https://user-images.githubusercontent.com/693072/185769746-622331cf-5e0e-4fd1-9925-18213557234a.png)
 
 ## Included configuration
 
