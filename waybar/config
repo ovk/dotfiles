@@ -31,7 +31,7 @@
     },
 
     "memory": {
-        "format": "{percentage:3}% ",
+        "format": "{percentage:3}% ",
         "states": {
             "warning": 70,
             "critical": 90
