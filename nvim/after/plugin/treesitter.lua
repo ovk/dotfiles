@@ -23,6 +23,7 @@ nvimtreesitter.setup({
         'yaml',
         'hcl',
         'markdown',
+        'latex',
         'dockerfile',
         'make',
         'cmake',
