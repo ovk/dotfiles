@@ -9,11 +9,12 @@ vim.g.mapleader = ' '
 map('n', '<C-n>', ':bnext<cr>', { noremap = true, silent = true })
 map('n', '<C-p>', ':bprev<cr>', { noremap = true, silent = true })
 
--- Mappings for 'D|C' to use unnamed register
+-- Mappings for 'D|C|P' to use unnamed register
 map('n', '<leader>d', '"_d', { noremap = true })
 map('n', '<leader>D', '"_D', { noremap = true })
 map('n', '<leader>c', '"_c', { noremap = true })
 map('n', '<leader>C', '"_C', { noremap = true })
+map('x', '<leader>p', "\"_dP", { noremap = true })
 
 -- Move selected lines up/down
 map('x', 'K', ":move '<-2<cr>gv=gv", { noremap = true })
