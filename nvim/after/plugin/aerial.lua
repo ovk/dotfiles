@@ -10,10 +10,3 @@ aerial.setup({
     on_attach = ovk_aerial_keymap
 })
 
-vim.highlight.link('AerialClass', 'Type', true)
-vim.highlight.link('AerialClassIcon', 'Keyword', true)
-vim.highlight.link('AerialFunction', 'Function', true)
-vim.highlight.link('AerialFunctionIcon', 'Keyword', true)
-vim.highlight.link('AerialLine', 'QuickFixLine', true)
-vim.highlight.link('AerialGuide', 'Comment', true)
-
