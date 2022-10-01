@@ -157,6 +157,9 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " ------------------------------------------------------------------------------
 " Mappings
 
+" Edit file
+nnoremap E :edit<cr>
+
 " Start shell in current directory
 nnoremap s :shell<cr>
 
