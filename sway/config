@@ -29,7 +29,7 @@ exec swayidle -w \
 
 # Input
 input "type:keyboard" {
-    xkb_layout us,ru
+    xkb_layout us,ua
     xkb_options grp:alt_shift_toggle
 }
 
