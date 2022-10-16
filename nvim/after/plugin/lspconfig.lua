@@ -10,6 +10,9 @@ lspconfig.clangd.setup({ on_attach = ovk_setup_lsp_keymap })
 -- Go
 lspconfig.gopls.setup({ on_attach = ovk_setup_lsp_keymap })
 
+-- Rust
+lspconfig.rust_analyzer.setup({ on_attach = ovk_setup_lsp_keymap })
+
 -- Python
 lspconfig.pyright.setup({ on_attach = ovk_setup_lsp_keymap })
 

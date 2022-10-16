@@ -15,6 +15,7 @@ nvimtreesitter.setup({
         'lua',
         'javascript',
         'typescript',
+        'rust',
         'bash',
         'fish',
         'html',
