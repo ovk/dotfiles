@@ -5,7 +5,9 @@ if not present then
 end
 
 aerial.setup({
-    min_width = 20,
+    layout = {
+        min_width = 20,
+    },
     show_guides = true,
     on_attach = ovk_aerial_keymap
 })
