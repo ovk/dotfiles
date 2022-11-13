@@ -129,3 +129,17 @@ window#waybar {
     animation-name: blink-critical;
     animation-duration: 2s;
 }
+
+
+/* FIXME: workaround for issue #1764 introduced in 0.9.15 */
+button {
+    border: none;
+}
+
+label:disabled, button:disabled {
+    color: inherit;
+}
+
+button:hover {
+    background: inherit;
+}
