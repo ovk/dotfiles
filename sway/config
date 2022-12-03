@@ -29,7 +29,7 @@ exec swayidle -w \
 
 # Input
 input "type:keyboard" {
-    xkb_layout us,ua
+    xkb_layout us,ru,ua
     xkb_options grp:alt_shift_toggle
 }
 
@@ -263,7 +263,7 @@ bindsym XF86AudioPrev exec playerctl previous
 assign [app_id="firefox"] 2:web
 assign [app_id="thunderbird"] 3:email
 assign [title="Signal"] 4:im
-assign [app_id="telegramdesktop"] 4:im
+assign [app_id="org.telegram.desktop"] 4:im
 assign [class="Skype"] 4:im
 assign [app_id="audacious"] 6:music
 assign [app_id="Inkscape"] 7:graph
