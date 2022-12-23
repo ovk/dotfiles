@@ -281,10 +281,7 @@ for_window [app_id="thunderbird" title=".*Reminder"] floating enable
 include $HOME/.config/sway/extra
 
 # Startup
-exec mkfifo $SWAYSOCK.wob && \
-    tail -f $SWAYSOCK.wob 2> /dev/null | \
-    wob --border 3 --padding 0 --height 25 --width 200 \
-        --background-color '#00000000' --border-color '#f0434c5e' --bar-color '#f05e81ac'
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob 2> /dev/null | wob
 
 exec mako
 exec nm-applet --indicator
