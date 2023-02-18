@@ -7,6 +7,7 @@ font=sans-serif 10
 background-color=#3b4252
 text-color=#d8dee9
 border-radius=2
+on-button-middle=exec makoctl menu -n "$id" wofi --show=dmenu -p 'Select action: '
 
 [urgency=low]
 border-color=#434c5e
