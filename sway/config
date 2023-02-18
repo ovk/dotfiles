@@ -276,6 +276,7 @@ for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="firefox" title="Library"] floating enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable
 for_window [app_id="thunderbird" title=".*Reminder"] floating enable
+for_window [app_id="systemd-gnome-ask-password-agent"] floating enable
 
 # Include extra device-specific settings
 include $HOME/.config/sway/extra
