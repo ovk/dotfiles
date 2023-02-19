@@ -49,6 +49,24 @@ window#waybar {
     border-bottom: 3px solid #ebcb8b;
 }
 
+#workspaces button.urgent {
+    animation: urgent 2s infinite;
+}
+
+@keyframes urgent {
+	0% {
+        background-color: transparent;
+	}
+
+	50% {
+        background-color: #bf616a;
+	}
+
+	100% {
+        background-color: transparent;
+	}
+}
+
 #workspaces button:hover {
     background-color: #5e81ac;
 }
