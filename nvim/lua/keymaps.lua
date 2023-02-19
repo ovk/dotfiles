@@ -16,10 +16,6 @@ map('n', '<leader>c', '"_c', { noremap = true })
 map('n', '<leader>C', '"_C', { noremap = true })
 map('x', '<leader>p', "\"_dP", { noremap = true })
 
--- Move selected lines up/down
-map('x', 'K', ":move '<-2<cr>gv=gv", { noremap = true })
-map('x', 'J', ":move '>+1<cr>gv=gv", { noremap = true })
-
 -- nvim-tree (e is for 'explorer')
 map('n', '<leader>et', '<cmd>NvimTreeToggle<cr>', { noremap = true })
 map('n', '<leader>ee', '<cmd>NvimTreeFocus<cr>', { noremap = true })
