@@ -6,3 +6,8 @@ color cursor default color8 bold
 color title-focus color6 color8 bold
 color title-blur color5 color8
 
+bind generic g  none
+bind generic gg move-first-line
+
+bind main    G move-last-line
+bind generic G move-last-line
