@@ -33,7 +33,7 @@ function M.close_current_buffer()
         local action = string.char(vim.fn.getchar())
 
         if action == 's' or action == 'S' then
-            vim.cmd('write')
+            vim.api.nvim_buf_call(bufnr, function() vim.cmd.write() end)
         elseif action == 'i' or action == 'I' then
             force = true
         else
@@ -49,21 +49,25 @@ function M.close_current_buffer()
         vim.api.nvim_list_bufs()
     )
 
+    local target_bufnr
+
     if #buffers > 1 then
         for i, v in ipairs(buffers) do
             if v == bufnr then
-                local next_buf = buffers[i % #buffers + 1]
-                for _, win in ipairs(windows) do
-                    vim.api.nvim_win_set_buf(win, next_buf)
-                end
+                target_bufnr = buffers[i % #buffers + 1]
                 break
             end
         end
+    else
+        target_bufnr = vim.api.nvim_create_buf(true, false)
+    end
+
+    for _, win in ipairs(windows) do
+        vim.api.nvim_win_set_buf(win, target_bufnr)
     end
 
     if vim.api.nvim_buf_is_valid(bufnr) then
-        local command = force and 'bdelete!' or 'bdelete'
-        vim.cmd(string.format('%s %d', command, bufnr))
+        vim.cmd.bwipeout({ count = bufnr, bang = force })
     end
 end
 
