@@ -16,6 +16,7 @@
     { "src": "sway", "dst": "~/.config/sway" },
     { "src": "swaylock", "dst": "~/.config/swaylock" },
     { "src": "wob", "dst": "~/.config/wob" },
+    { "src": "swappy", "dst": "~/.config/swappy" },
     { "src": "imv", "dst": "~/.config/imv" },
     { "src": "gtkrc-2.0", "dst": "~/.config/gtk-2.0/gtkrc" },
     { "src": "gtk-3.0", "dst": "~/.config/gtk-3.0" },
