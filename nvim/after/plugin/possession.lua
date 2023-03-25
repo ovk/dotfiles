@@ -21,7 +21,7 @@ possession.setup({
             match = {
                 floating = true,
                 buftype = {},
-                filetype = { 'aerial'}
+                filetype = { 'aerial' }
             }
         },
     }

@@ -72,6 +72,11 @@ function ovk_setup_lsp_keymap(client, bufnr)
     lmap('n', '<leader>aa', vim.lsp.buf.code_action, bufopts)
     lmap('n', '<leader>an', vim.lsp.buf.rename, bufopts)
     lmap('n', '<leader>af', function() vim.lsp.buf.format({async=true}) end, bufopts)
+
+    if client.server_capabilities.documentHighlightProvider then
+        lmap('n', '<leader>ah', vim.lsp.buf.document_highlight, bufopts)
+        lmap('n', '<leader>aH', vim.lsp.buf.clear_references, bufopts)
+    end
 end
 
 -- Completion mappings

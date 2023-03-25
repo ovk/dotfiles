@@ -22,6 +22,9 @@ lspconfig.tsserver.setup({ on_attach = ovk_setup_lsp_keymap })
 -- YAML
 lspconfig.yamlls.setup({ on_attach = ovk_setup_lsp_keymap })
 
+-- CSS
+lspconfig.cssls.setup({ on_attach = ovk_setup_lsp_keymap })
+
 -- Diagnostic icons
 local signs = { Error = '', Warn = '', Hint = '', Info = '' }
 
