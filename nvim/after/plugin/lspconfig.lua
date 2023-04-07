@@ -20,7 +20,13 @@ lspconfig.pyright.setup({ on_attach = ovk_setup_lsp_keymap })
 lspconfig.tsserver.setup({ on_attach = ovk_setup_lsp_keymap })
 
 -- YAML
-lspconfig.yamlls.setup({ on_attach = ovk_setup_lsp_keymap })
+lspconfig.yamlls.setup({
+    on_attach = ovk_setup_lsp_keymap,
+    settings = {
+        yaml = { keyOrdering = false },
+        redhat = { telemetry = { enabled = false } }
+    }
+})
 
 -- CSS
 lspconfig.cssls.setup({ on_attach = ovk_setup_lsp_keymap })
