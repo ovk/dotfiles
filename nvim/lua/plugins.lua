@@ -7,14 +7,6 @@ packer.startup({ function()
     -- nvim-treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    -- spellsitter
-    use {
-        'lewis6991/spellsitter.nvim',
-        config = function()
-            require('spellsitter').setup()
-        end
-    }
-
     -- nordic (color scheme)
     use {
         'andersevenrud/nordic.nvim',
@@ -32,8 +24,7 @@ packer.startup({ function()
         'kyazdani42/nvim-tree.lua',
         requires = {
             'kyazdani42/nvim-web-devicons'
-        },
-        tag = 'nightly',
+        }
     }
 
     -- nvim-lspconfig
