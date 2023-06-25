@@ -11,5 +11,13 @@ function fish_prompt --description 'Write out the prompt'
         set suffix '#'
     end
 
-    echo -n -s (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal " " $suffix " "
+    # Show number of jobs, if there are any
+    set -l jobs_count (jobs -p | count)
+    set -f jobs_info ''
+
+    if test "$jobs_count" -gt 0
+        set -f jobs_info " {$jobs_count}"
+    end
+
+    echo -n -s (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal (set_color $fish_color_command) $jobs_info $normal " " $suffix " "
 end
