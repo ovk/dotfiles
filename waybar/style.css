@@ -54,17 +54,17 @@ window#waybar {
 }
 
 @keyframes urgent {
-	0% {
+    0% {
         background-color: transparent;
-	}
+    }
 
-	50% {
+    50% {
         background-color: #bf616a;
-	}
+    }
 
-	100% {
+    100% {
         background-color: transparent;
-	}
+    }
 }
 
 #workspaces button:hover {
@@ -148,16 +148,23 @@ window#waybar {
     animation-duration: 2s;
 }
 
-
-/* FIXME: workaround for issue #1764 introduced in 0.9.15 */
-button {
-    border: none;
+tt {
+    background: red;
+    border: 5px solid black;
 }
 
-label:disabled, button:disabled {
-    color: inherit;
+#clock.calendar, #calendar {
+    background: red;
+    border: 5px solid black;
 }
 
-button:hover {
-    background: inherit;
+tooltip {
+    border-radius: 5px;
+    background-color: #4c566a;
 }
+
+tooltip label {
+    color: #e5e9f0;
+    font-weight: bold;
+}
+

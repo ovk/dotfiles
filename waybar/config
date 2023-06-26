@@ -18,10 +18,10 @@
             "4:im": "",
             "5:dev": "",
             "6:music": "",
-	    "7:graph": "",
-	    "8:any": "",
-	    "9:any": "",
-	    "10:aux": ""
+            "7:graph": "",
+            "8:any": "",
+            "9:any": "",
+            "10:aux": ""
         }
     },
 
@@ -76,10 +76,22 @@
     },
 
     "clock": {
-        "format-alt": "{:%A, %B %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-scroll": {
-            "calendar": 1
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months":   "<span color='#d8dee9'><b>{}</b></span>",
+                "days":     "<span><b>{}</b></span>",
+                "weekdays": "<span color='#ebcb8b'><b>{}</b></span>",
+                "today":    "<span color='#ebcb8b'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
         }
     }
 }
