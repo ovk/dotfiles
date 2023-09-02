@@ -33,6 +33,7 @@ packer.startup({ function()
     -- fidget (LSP status indicator)
     use {
         'j-hui/fidget.nvim',
+        tag = 'legacy', -- TODO: remove this once fidget.nvim rewrite is complete
         config = function ()
             require('fidget').setup({})
         end
@@ -84,7 +85,7 @@ packer.startup({ function()
     -- bufferline.nvim
     use {
         'akinsho/bufferline.nvim',
-        tag = 'v2.*',
+        tag = 'v4.*',
         requires = { 'kyazdani42/nvim-web-devicons' }
     }
 
