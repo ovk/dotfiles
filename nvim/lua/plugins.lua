@@ -104,6 +104,9 @@ packer.startup({ function()
     -- mason.nvim (package manager)
     use 'williamboman/mason.nvim'
 
+    -- marks.nvim (show marks in sign column)
+    use 'chentoast/marks.nvim'
+
 end,
     config = {
         display = {
