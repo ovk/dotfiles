@@ -21,6 +21,7 @@
     { "src": "gtkrc-2.0", "dst": "~/.config/gtk-2.0/gtkrc" },
     { "src": "gtk-3.0", "dst": "~/.config/gtk-3.0" },
     { "src": "qt5ct", "dst": "~/.config/qt5ct" },
+    { "src": "qt6ct", "dst": "~/.config/qt6ct" },
     { "src": "Kvantum", "dst": "~/.config/Kvantum" }
   ],
   "template": [
