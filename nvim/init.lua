@@ -1,5 +1,5 @@
 require('settings')
 require('keymaps')
 require('autocmd')
-require('plugins')
+require('lazy-nvim')
 

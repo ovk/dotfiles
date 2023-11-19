@@ -16,17 +16,6 @@ map('n', '<leader>c', '"_c', { noremap = true })
 map('n', '<leader>C', '"_C', { noremap = true })
 map('x', '<leader>p', "\"_dP", { noremap = true })
 
--- nvim-tree (e is for 'explorer')
-map('n', '<leader>et', '<cmd>NvimTreeToggle<cr>', { noremap = true })
-map('n', '<leader>ee', '<cmd>NvimTreeFocus<cr>', { noremap = true })
-
--- Telescope
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true })
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true })
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true })
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
-map('n', '<leader>fs', '<cmd>Telescope possession list<cr>', { noremap = true })
-
 -- Bufferline
 function ovk_bufferline_keymap(bufferline)
     -- Navigate listed buffers with <leader>1-9
@@ -37,11 +26,6 @@ end
 
 -- Close current buffer preserving windows layout
 lmap('n', '<C-Bs>', utils.close_current_buffer, { noremap = true, silent = true })
-
--- Aerial
-function ovk_aerial_keymap(bufnr)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lo', '<cmd>AerialToggle!<cr>', {})
-end
 
 -- LSP mappings
 function ovk_setup_lsp_keymap(client, bufnr)
