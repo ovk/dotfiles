@@ -5,6 +5,8 @@ return {
 
     lazy = false,
 
+    after = 'catppuccin',
+
     opts = {
         options = {
             numbers = 'ordinal',
@@ -21,22 +23,14 @@ return {
             show_close_icon = false
         },
 
-        highlights = {
-            buffer_selected = regular_style,
-            numbers_selected = regular_style,
-            diagnostic_selected = regular_style,
-            info_selected = regular_style,
-            info_selected = regular_style,
-            info_diagnostic_selected = regular_style,
-            warning_selected = regular_style,
-            warning_diagnostic_selected = regular_style,
-            error_selected = regular_style,
-            error_diagnostic_selected = regular_style,
-        },
     },
 
     config = function (_, opts)
         local bufferline = require('bufferline')
+
+        opts['highlights'] = require('catppuccin.groups.integrations.bufferline').get({
+            styles = {},
+        })
 
         bufferline.setup(opts)
 

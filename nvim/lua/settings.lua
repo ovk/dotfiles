@@ -24,6 +24,7 @@ vim.o.clipboard      = 'unnamedplus'      -- Use '+' register for clipboard
 
 vim.o.completeopt    = 'menu,menuone,noselect'
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
+vim.o.shada          = '\'0,<0,f0,s10,h'
 vim.o.diffopt        = 'internal,filler,algorithm:histogram,indent-heuristic'
 vim.o.wildignore     = '*.o,*~,*.pyc,*pycache*,node_modules'
 vim.o.wildmode       = 'longest:full'

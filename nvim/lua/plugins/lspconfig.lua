@@ -33,6 +33,9 @@ return {
         -- CSS
         lspconfig.cssls.setup({ on_attach = ovk_setup_lsp_keymap })
 
+        -- Terraform
+        lspconfig.terraformls.setup({ on_attach = ovk_setup_lsp_keymap })
+
         -- Diagnostic icons
         local signs = { Error = ' ', Warn = ' ', Hint = '', Info = '' }
 

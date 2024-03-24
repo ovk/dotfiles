@@ -25,7 +25,7 @@ function ovk_bufferline_keymap(bufferline)
 end
 
 -- Close current buffer preserving windows layout
-lmap('n', '<C-Bs>', utils.close_current_buffer, { noremap = true, silent = true })
+lmap('n', '<C-Bs>', function () utils.close_current_buffer({ 'NvimTree' }) end, { noremap = true, silent = true })
 
 -- LSP mappings
 function ovk_setup_lsp_keymap(client, bufnr)

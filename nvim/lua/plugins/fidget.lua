@@ -3,7 +3,13 @@ return {
 
     event = 'VeryLazy',
 
-    opts = {},
+    opts = {
+        notification = {
+            window = {
+                winblend = 0,
+            },
+        }
+    },
 
     config = function (_, opts)
         require('fidget').setup(opts)

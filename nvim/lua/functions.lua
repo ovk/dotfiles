@@ -22,11 +22,22 @@ function M.set_tab_width(width)
     vim.api.nvim_buf_set_option(0, 'shiftwidth', width)
 end
 
--- Close current buffer (:bdelete) preserving window layout
-function M.close_current_buffer()
+-- Close current buffer (:bdelete) trying to preserve window layout
+function M.close_current_buffer(no_close_list)
     local bufnr = vim.api.nvim_get_current_buf()
+    local bufname = vim.api.nvim_buf_get_name(bufnr);
     local force = false
 
+    -- Don't close buffers with name that matches one in 'no_close_list'
+    if no_close_list ~= nil then
+        for _, bufmatch in ipairs(no_close_list) do
+            if bufname:match(bufmatch) then
+                return
+            end
+        end
+    end
+
+    -- Ask for action if the buffer is modified
     if vim.bo[bufnr].modified then
         vim.api.nvim_echo({{'Buffer is modified: (s)ave, (i)gnore, (a)bort?'}}, false, {})
 
@@ -41,6 +52,13 @@ function M.close_current_buffer()
         end
     end
 
+    -- If the buffer is unlisted (e.g. help) or quick fix: just close it without trying to preserve window
+    if not vim.api.nvim_buf_is_valid(bufnr) or not vim.bo[bufnr].buflisted or vim.bo[bufnr].bt == 'quickfix' then
+        vim.cmd.bwipeout({ count = bufnr, bang = force })
+        return
+    end
+
+    -- Try to find a buffer which we can use in place of deleted buffer
     local windows = vim.tbl_filter(function(win) return vim.api.nvim_win_get_buf(win) == bufnr end, vim.api.nvim_list_wins())
     local buffers = vim.tbl_filter(
         function(buf) return
@@ -53,12 +71,14 @@ function M.close_current_buffer()
 
     if #buffers > 1 then
         for i, v in ipairs(buffers) do
-            if v == bufnr then
-                target_bufnr = buffers[i % #buffers + 1]
+            if v ~= bufnr then
+                target_bufnr = buffers[i]
                 break
             end
         end
-    else
+    end
+
+    if target_bufnr == nil then
         target_bufnr = vim.api.nvim_create_buf(true, false)
     end
 
