@@ -39,7 +39,6 @@ function ovk_setup_lsp_keymap(client, bufnr)
     vim.opt_local.signcolumn = 'yes'
 
     -- Mappings
-    lmap('n', 'K', vim.lsp.buf.hover, bufopts)
     lmap('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     lmap('i', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 

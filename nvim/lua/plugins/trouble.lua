@@ -4,10 +4,13 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
 
     keys = {
-        { '<leader>tt', '<cmd>TroubleToggle<cr>' },
+        { '<leader>tt', '<cmd>Trouble diagnostics toggle<cr>' },
     },
 
-    opts = {},
+    opts = {
+        warn_no_results = false,
+        open_no_results = true,
+    },
 
     config = function (_, opts)
         require('trouble').setup(opts)
