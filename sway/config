@@ -264,7 +264,6 @@ assign [app_id="firefox"] 2:web
 assign [app_id="thunderbird"] 3:email
 assign [title="Signal"] 4:im
 assign [app_id="org.telegram.desktop"] 4:im
-assign [class="Skype"] 4:im
 assign [app_id="audacious"] 6:music
 assign [app_id="Inkscape"] 7:graph
 
