@@ -19,7 +19,7 @@ return {
         lspconfig.pyright.setup({ on_attach = ovk_setup_lsp_keymap })
 
         -- JavaScript, TypeScript
-        lspconfig.tsserver.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.ts_ls.setup({ on_attach = ovk_setup_lsp_keymap })
 
         -- YAML
         lspconfig.yamlls.setup({

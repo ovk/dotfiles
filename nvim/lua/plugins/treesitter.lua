@@ -25,6 +25,7 @@ return {
             'yaml',
             'hcl',
             'markdown',
+            'markdown_inline',
             'latex',
             'dockerfile',
             'terraform',
