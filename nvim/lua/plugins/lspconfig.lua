@@ -1,29 +1,33 @@
 return {
     'neovim/nvim-lspconfig',
 
+    dependencies = { 'saghen/blink.cmp' },
+
     event = 'BufReadPre',
 
     config = function(_, opts)
         local lspconfig = require('lspconfig')
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         -- C++
-        lspconfig.clangd.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.clangd.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- Go
-        lspconfig.gopls.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.gopls.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- Rust
-        lspconfig.rust_analyzer.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.rust_analyzer.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- Python
-        lspconfig.pyright.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.pyright.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- JavaScript, TypeScript
-        lspconfig.ts_ls.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.ts_ls.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- YAML
         lspconfig.yamlls.setup({
             on_attach = ovk_setup_lsp_keymap,
+            capabilities = capabilities,
             settings = {
                 yaml = { keyOrdering = false },
                 redhat = { telemetry = { enabled = false } }
@@ -31,10 +35,10 @@ return {
         })
 
         -- CSS
-        lspconfig.cssls.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.cssls.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- Terraform
-        lspconfig.terraformls.setup({ on_attach = ovk_setup_lsp_keymap })
+        lspconfig.terraformls.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
         -- Diagnostic icons
         local signs = { Error = ' ', Warn = ' ', Hint = '', Info = '' }
