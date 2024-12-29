@@ -24,6 +24,30 @@ return {
         -- JavaScript, TypeScript
         lspconfig.ts_ls.setup({ on_attach = ovk_setup_lsp_keymap, capabilities = capabilities })
 
+        -- Lua
+        lspconfig.lua_ls.setup({
+            on_attach = ovk_setup_lsp_keymap,
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                        path = vim.split(package.path, ";"),
+                    },
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    workspace = {
+                        library = { vim.env.VIMRUNTIME },
+                        checkThirdParty = false,
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        })
+
         -- YAML
         lspconfig.yamlls.setup({
             on_attach = ovk_setup_lsp_keymap,
@@ -51,4 +75,3 @@ return {
         vim.diagnostic.config({ virtual_text = { prefix = '●' } })
     end,
 }
-
