@@ -6,6 +6,11 @@ return {
     opts = {
         keymap = {
             preset = 'default',
+
+            cmdline = {
+                preset = 'super-tab',
+            },
+
             ['<CR>'] = { 'accept', 'fallback' },
         },
 
