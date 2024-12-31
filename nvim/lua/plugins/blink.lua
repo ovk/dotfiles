@@ -7,11 +7,16 @@ return {
         keymap = {
             preset = 'default',
 
-            cmdline = {
-                preset = 'super-tab',
-            },
-
             ['<CR>'] = { 'accept', 'fallback' },
+
+            ['<Tab>'] = {
+                function(cmp)
+                    if (vim.api.nvim_get_mode().mode == 'c') then
+                        return cmp.show()
+                    end
+                end,
+                'fallback'
+            },
         },
 
         completion = {
