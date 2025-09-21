@@ -12,8 +12,7 @@ return {
         open_no_results = true,
     },
 
-    config = function (_, opts)
+    config = function(_, opts)
         require('trouble').setup(opts)
     end,
 }
-

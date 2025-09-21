@@ -17,8 +17,7 @@ return {
         show_guides = true,
     },
 
-    config = function (_, opts)
+    config = function(_, opts)
         require('aerial').setup(opts)
     end,
 }
-

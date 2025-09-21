@@ -11,12 +11,12 @@ return {
             current = true
         },
         hooks = {
-            before_load = function(name, user_data)
+            before_load = function(_, user_data)
                 -- Force load DAP to avoid error
                 require('dap')
                 return user_data
             end,
-            before_save = function(name)
+            before_save = function()
                 -- Force load DAP to avoid error
                 require('dap')
                 return {}
@@ -40,8 +40,7 @@ return {
         }
     },
 
-    config = function (_, opts)
+    config = function(_, opts)
         require('possession').setup(opts)
     end,
 }
-

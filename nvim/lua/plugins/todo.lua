@@ -7,9 +7,9 @@ return {
 
     opts = {
         keywords = {
-            TODO = { icon = "", color = "info" },
-            PERF = { icon = "⏲", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-            TEST = { icon = "󰙨", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+            TODO = { icon = '', color = 'info' },
+            PERF = { icon = '⏲', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
+            TEST = { icon = '󰙨', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
         }
     }
 }

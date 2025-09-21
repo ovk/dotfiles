@@ -66,6 +66,10 @@ vim.o.showmode   = false   -- Don't show mode
 vim.o.splitright = true    -- Vertical split to the right
 vim.o.linebreak  = true    -- Wrap on word boundary
 vim.o.showbreak  = '↪ '    -- Wrapped line indicator
-vim.o.listchars = 'eol:↲,nbsp:␣,tab:▸→,extends:❯,precedes:❮,trail:∙' -- Characters to display for invisible characters
+vim.o.listchars  = 'eol:↲,nbsp:␣,tab:▸→,extends:❯,precedes:❮,trail:∙' -- Characters to display for invisible characters
 vim.o.fillchars  = 'eob: ' -- Customise fill characters
+
+-- Disable netrw as per nvim-tree docs.
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
 

@@ -1,8 +1,8 @@
 local M = {}
 
--- Remove all trailing white spaces from the current buffer
+--- Remove all trailing white spaces in the current buffer.
 function M.remove_trailing_whitespace()
-    if  vim.bo.modifiable == false or
+    if vim.bo.modifiable == false or
         vim.bo.modified == false or
         vim.bo.binary == true or
         vim.bo.filetype == 'xxd' or
@@ -15,21 +15,16 @@ function M.remove_trailing_whitespace()
     vim.fn.winrestview(state)
 end
 
--- Convenient function to set indentation width
-function M.set_tab_width(width)
-    vim.api.nvim_buf_set_option(0, 'tabstop', width)
-    vim.api.nvim_buf_set_option(0, 'softtabstop', width)
-    vim.api.nvim_buf_set_option(0, 'shiftwidth', width)
-end
-
--- Close current buffer (:bdelete) trying to preserve window layout
+--- Close current buffer (:bdelete) trying to preserve window layout.
+---
+---@param no_close_list string[]
 function M.close_current_buffer(no_close_list)
     local bufnr = vim.api.nvim_get_current_buf()
-    local bufname = vim.api.nvim_buf_get_name(bufnr);
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
     local force = false
 
     -- Don't close buffers with name that matches one in 'no_close_list'
-    if no_close_list ~= nil then
+    if no_close_list then
         for _, bufmatch in ipairs(no_close_list) do
             if bufname:match(bufmatch) then
                 return
@@ -37,11 +32,16 @@ function M.close_current_buffer(no_close_list)
         end
     end
 
+    -- If the window already has placeholder buffer, there is nothing left to close
+    if vim.b[bufnr].ovk_placeholder_scratch then
+        return
+    end
+
     -- Ask for action if the buffer is modified
     if vim.bo[bufnr].modified then
-        vim.api.nvim_echo({{'Buffer is modified: (s)ave, (i)gnore, (a)bort?'}}, false, {})
+        vim.api.nvim_echo({ { 'Buffer is modified: (s)ave, (i)gnore, (a)bort?' } }, false, {})
 
-        local action = string.char(vim.fn.getchar())
+        local action = vim.fn.getcharstr()
 
         if action == 's' or action == 'S' then
             vim.api.nvim_buf_call(bufnr, function() vim.cmd.write() end)
@@ -59,10 +59,10 @@ function M.close_current_buffer(no_close_list)
     end
 
     -- Try to find a buffer which we can use in place of deleted buffer
-    local windows = vim.tbl_filter(function(win) return vim.api.nvim_win_get_buf(win) == bufnr end, vim.api.nvim_list_wins())
     local buffers = vim.tbl_filter(
-        function(buf) return
-            vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted
+        function(buf)
+            return
+                vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted
         end,
         vim.api.nvim_list_bufs()
     )
@@ -79,10 +79,11 @@ function M.close_current_buffer(no_close_list)
     end
 
     if target_bufnr == nil then
-        target_bufnr = vim.api.nvim_create_buf(true, false)
+        target_bufnr = vim.api.nvim_create_buf(false, true)
+        vim.b[target_bufnr].ovk_placeholder_scratch = true
     end
 
-    for _, win in ipairs(windows) do
+    for _, win in ipairs(vim.fn.win_findbuf(bufnr)) do
         vim.api.nvim_win_set_buf(win, target_bufnr)
     end
 

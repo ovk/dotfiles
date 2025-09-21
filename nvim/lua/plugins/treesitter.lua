@@ -1,7 +1,7 @@
 return {
     'nvim-treesitter/nvim-treesitter',
 
-    event = 'BufReadPost',
+    lazy = false,
 
     build = ':TSUpdate',
 
@@ -26,7 +26,6 @@ return {
             'hcl',
             'markdown',
             'markdown_inline',
-            'latex',
             'dockerfile',
             'terraform',
             'make',
@@ -38,11 +37,6 @@ return {
             additional_vim_regex_highlighting = false,
         },
 
-        incremental_selection = {
-            enable = true,
-            keymaps = ovk_treesitter_keymap
-        },
-
         indent = {
             enable = true
         },
@@ -52,4 +46,3 @@ return {
         require('nvim-treesitter.configs').setup(opts)
     end,
 }
-

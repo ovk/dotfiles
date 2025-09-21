@@ -5,8 +5,7 @@ return {
         default = true,
     },
 
-    config = function (_, opts)
+    config = function(_, opts)
         require('nvim-web-devicons').setup(opts)
     end,
 }
-

@@ -3,11 +3,9 @@ return {
 
     name = 'catppuccin',
 
-    lazy = false,
-
     priority = 1000,
 
-    config = function ()
+    config = function()
         require('catppuccin').setup({
             flavour = 'frappe', -- latte, frappe, macchiato, mocha
 
@@ -40,14 +38,14 @@ return {
 
             color_overrides = {},
 
-            custom_highlights = function (colors)
+            custom_highlights = function(colors)
                 return {
                     Type = { fg = colors.teal },
-                    ["@type.builtin"] = { fg = colors.teal },
-                    ["@variable.parameter"] = { link = '@variable' },
+                    ['@type.builtin'] = { fg = colors.teal },
+                    ['@variable.parameter'] = { link = '@variable' },
                     Function = { link = '@property' },
 
-                    ["@module"] = { fg = colors.lavender, style = {} },
+                    ['@module'] = { fg = colors.lavender, style = {} },
 
                     SpellBad = { fg = colors.red },
 
@@ -82,6 +80,7 @@ return {
                 dap_ui = true,
                 nvimtree = true,
                 treesitter = true,
+                lsp_trouble = true
             },
         })
 

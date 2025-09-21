@@ -5,8 +5,7 @@ return {
 
     opts = {},
 
-
-    config = function (_, opts)
+    config = function(_, opts)
         require('nvim-autopairs').setup(opts)
     end,
 }

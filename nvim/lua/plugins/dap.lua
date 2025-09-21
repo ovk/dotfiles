@@ -3,7 +3,7 @@ return {
 
     dependencies = {
         {
-            'nvim-neotest/nvim-nio'
+            'nvim-neotest/nvim-nio' -- Required for dap-ui
         },
         {
             'rcarriga/nvim-dap-ui',
@@ -14,65 +14,52 @@ return {
         },
     },
 
-    keys = '<F5>',
+    keys = {
+        { '<leader>bt', '<cmd>DapToggleBreakpoint<cr>' },
+        { '<F5>',       '<cmd>DapContinue<cr>' },
+        { '<F6>',       '<cmd>DapStepOut<cr>' },
+        { '<F7>',       '<cmd>DapStepInto<cr>' },
+        { '<F8>',       '<cmd>DapStepOver<cr>' },
+    },
 
-    config = function (_, opts)
-        local dap = require('dap')
+    config = function()
+        local dap, dapui = require('dap'), require('dapui')
 
-        ovk_dap_keymap(dap)
-
-        local dapui = require('dapui')
-        dapui.setup()
-
-        dap.listeners.after.event_initialized['dapui_config'] = function()
+        dap.listeners.before.attach.dapui_config = function()
             dapui.open()
         end
 
-        dap.listeners.before.event_terminated['dapui_config'] = function()
+        dap.listeners.before.launch.dapui_config = function()
+            dapui.open()
+        end
+
+        dap.listeners.before.event_terminated.dapui_config = function()
             dapui.close()
         end
 
-        dap.listeners.before.event_exited['dapui_config'] = function()
+        dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
         end
 
         -- Go (delve)
-        dap.adapters.go = function (callback, config)
-            local stdout = vim.loop.new_pipe(false)
-            local handle
-            local pid_or_err
-            local port = 38697
-            local opts = {
-                stdio = { nil, stdout },
-                args = { 'dap', '-l', '127.0.0.1:' .. port },
-                detached = true
-            }
-
-            handle, pid_or_err = vim.loop.spawn('dlv', opts, function (code)
-                stdout:close()
-                handle:close()
-                if code ~= 0 then
-                    print('dlv exited with code', code)
-                end
-            end)
-
-            assert(handle, 'Error running dlv: ' .. tostring(pid_or_err))
-
-            stdout:read_start(function (err, chunk)
-                assert(not err, err)
-                if chunk then
-                    vim.schedule(function()
-                        require('dap.repl').append(chunk)
-                    end)
-                end
-            end)
-
-            -- Wait for delve to start
-            vim.defer_fn(
-                function()
-                    callback({type = 'server', host = '127.0.0.1', port = port})
-                end,
-                100)
+        dap.adapters.go = function(callback, config)
+            if config.mode == 'remote' and config.request == 'attach' then
+                callback({
+                    type = 'server',
+                    host = config.host or '127.0.0.1',
+                    port = config.port or '38697'
+                })
+            else
+                callback({
+                    type = 'server',
+                    port = '${port}',
+                    executable = {
+                        command = 'dlv',
+                        args = { 'dap', '-l', '127.0.0.1:${port}', '--log', '--log-output=dap' },
+                        detached = vim.fn.has('win32') == 0,
+                    }
+                })
+            end
         end
 
         dap.configurations.go = {
@@ -97,7 +84,5 @@ return {
                 program = './${relativeFileDirname}'
             }
         }
-
     end,
 }
-

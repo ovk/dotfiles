@@ -1,7 +1,9 @@
 return {
     'saghen/blink.cmp',
 
-    version = 'v0.9.0',
+    lazy = false,
+
+    version = 'v1.7.0',
 
     opts = {
         keymap = {
@@ -22,11 +24,9 @@ return {
         completion = {
             documentation = { auto_show = true, auto_show_delay_ms = 500 },
             ghost_text = { enabled = false },
-            menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end }
+            menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end, }
         },
-
         appearance = {
-            use_nvim_cmp_as_default = true,
             nerd_font_variant = 'mono'
         },
 
@@ -37,5 +37,5 @@ return {
         },
     },
 
-    opts_extend = { "sources.default" }
+    opts_extend = { 'sources.default' }
 }

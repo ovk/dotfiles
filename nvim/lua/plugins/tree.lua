@@ -43,8 +43,8 @@ return {
             dotfiles = true,
         },
 
-        on_attach = function (bufnr)
-            local api = require 'nvim-tree.api'
+        on_attach = function(bufnr)
+            local api = require('nvim-tree.api')
 
             local function opts(desc)
                 return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -60,11 +60,27 @@ return {
             vim.api.nvim_buf_del_keymap(bufnr, 'n', 'H')
             vim.api.nvim_buf_del_keymap(bufnr, 'n', 'M')
             vim.api.nvim_buf_del_keymap(bufnr, 'n', 'L')
+
+            -- Some intuitive folder navigation with h/l
+            vim.keymap.set('n', 'h', function()
+                local node = api.tree.get_node_under_cursor()
+                if (node.nodes and node.open) then
+                    api.node.open.edit()
+                else
+                    api.node.navigate.parent()
+                end
+            end, opts('Ascend / Close'))
+
+            vim.keymap.set('n', 'l', function()
+                local node = api.tree.get_node_under_cursor()
+                if (not node.open) then
+                    api.node.open.edit()
+                end
+            end, opts('Descent / Open'))
         end
     },
 
-    config = function (_, opts)
+    config = function(_, opts)
         require('nvim-tree').setup(opts)
     end,
 }
-

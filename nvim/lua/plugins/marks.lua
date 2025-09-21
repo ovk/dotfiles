@@ -9,8 +9,7 @@ return {
         excluded_filetypes = {},
     },
 
-    config = function (_, opts)
+    config = function(_, opts)
         require('marks').setup(opts)
     end,
 }
-

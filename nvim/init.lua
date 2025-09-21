@@ -2,4 +2,4 @@ require('settings')
 require('keymaps')
 require('autocmd')
 require('lazy-nvim')
-
+require('lsp')
