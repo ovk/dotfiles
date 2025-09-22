@@ -1,8 +1,7 @@
 return {
-    dir = '~/source/github/endec.nvim',
+    'ovk/endec.nvim',
 
     event = 'VeryLazy',
 
-    opts = {
-    },
+    opts = {},
 }
