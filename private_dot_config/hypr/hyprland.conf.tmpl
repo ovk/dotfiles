@@ -1,0 +1,293 @@
+source=~/.config/hypr/catppuccin.conf
+
+#################
+### VARIABLES ###
+#################
+$terminal = foot
+$launcher = fuzzel --launch-prefix="uwsm-app -- "
+$mod = SUPER
+
+################
+### MONITORS ###
+################
+monitor=,preferred,auto,auto
+
+#############
+### INPUT ###
+#############
+input {
+    kb_layout = us,ru,ua
+    kb_options = grp:alt_shift_toggle
+
+    numlock_by_default = true
+
+    follow_mouse = 1
+
+    sensitivity = 0
+
+    touchpad {
+        natural_scroll = false
+    }
+}
+
+#####################
+### LOOK AND FEEL ###
+#####################
+general {
+    border_size = 2
+
+    gaps_in = 4
+    gaps_out = 8
+    float_gaps = 0
+
+    col.active_border = rgba($blueAlphaee) rgba($lavenderAlphaee) 45deg
+    col.inactive_border = rgba($overlay0Alphaaa)
+
+    resize_on_border = true
+
+    allow_tearing = true
+
+    layout = master
+}
+
+group {
+    col.border_active = rgba($blueAlphaee) rgba($lavenderAlphaee) 45deg
+    col.border_inactive = rgba($overlay0Alphaaa)
+
+    groupbar {
+        blur = true
+        font_size = 10
+        indicator_height = 2
+        text_color = $text
+        text_color_inactive = $subtext0
+        col.active = rgba($blueAlphaee)
+        col.inactive = rgba($overlay0Alphaaa)
+    }
+}
+
+decoration {
+    rounding = 4
+    rounding_power = 2
+
+    active_opacity = 1.0
+    inactive_opacity = 1.0
+
+    shadow {
+        enabled = true
+        range = 8
+        render_power = 2
+        color = rgba($baseAlphaee)
+    }
+
+    blur {
+        enabled = true
+        size = 8
+        passes = 2
+    }
+}
+
+animations {
+    enabled = yes
+
+    #        NAME,           X0,   Y0,   X1,   Y1
+    bezier = easeOutQuint,   0.23, 1,    0.32, 1
+    bezier = easeInOutCubic, 0.65, 0.05, 0.36, 1
+    bezier = linear,         0,    0,    1,    1
+    bezier = almostLinear,   0.5,  0.5,  0.75, 1
+    bezier = quick,          0.15, 0,    0.1,  1
+
+    #           NAME,          ONOFF, SPEED, CURVE,        [STYLE]
+    animation = global,        1,     10,    default
+    animation = border,        1,     5.39,  easeOutQuint
+    animation = windows,       1,     2.79,  easeOutQuint
+    animation = windowsIn,     1,     4.1,   easeOutQuint, popin 87%
+    animation = windowsOut,    1,     1.49,  linear,       popin 87%
+    animation = fadeIn,        1,     1.73,  almostLinear
+    animation = fadeOut,       1,     1.46,  almostLinear
+    animation = fade,          1,     3.03,  quick
+    animation = layers,        1,     3.81,  easeOutQuint
+    animation = layersIn,      1,     4,     easeOutQuint, fade
+    animation = layersOut,     1,     1.5,   linear,       fade
+    animation = fadeLayersIn,  1,     1.79,  almostLinear
+    animation = fadeLayersOut, 1,     1.39,  almostLinear
+    animation = workspaces,    1,     1.94,  almostLinear, fade
+    animation = workspacesIn,  1,     1.21,  almostLinear, fade
+    animation = workspacesOut, 1,     1.94,  almostLinear, fade
+    animation = zoomFactor,    1,     7,     quick
+}
+
+misc {
+    font_family = Noto Sans
+
+    force_default_wallpaper = 0
+    disable_hyprland_logo = true
+    disable_splash_rendering = true
+}
+
+###################
+### KEYBINDINGS ###
+###################
+binds {
+    # Moving focus between windows also cycles through groups (like in Sway)
+    movefocus_cycles_groupfirst = true
+}
+
+# Terminal
+bind = $mod, Return, exec, uwsm-app -- $terminal
+
+# Launcher
+bind = $mod, SPACE, exec, $launcher
+
+# Shorthand for lock without wlogout
+bind = $mod, Q, exec, hyprlock
+
+# Close active window
+bind = $mod, X, killactive,
+
+# Power menu
+bind = $mod SHIFT, E, exec, uwsm app -- wlogout -b 5
+
+# Screenshots
+bind = , Print, exec, uwsm app -- hyprshot -m output --raw | satty --filename -
+bind = CONTROL, Print, exec, uwsm app -- hyprshot -m region --raw | satty --filename -
+
+# Floating window
+bind = $mod, F, togglefloating,
+
+# Moving focus
+bind = $mod, left, movefocus, l
+bind = $mod, right, movefocus, r
+bind = $mod, up, movefocus, u
+bind = $mod, down, movefocus, d
+
+bind = $mod, H, movefocus, l
+bind = $mod, L, movefocus, r
+bind = $mod, K, movefocus, u
+bind = $mod, J, movefocus, d
+
+# Move active window
+bind = $mod SHIFT, H, movewindoworgroup, l
+bind = $mod SHIFT, L, movewindoworgroup, r
+bind = $mod SHIFT, K, movewindoworgroup, u
+bind = $mod SHIFT, J, movewindoworgroup, d
+
+# Switch workspaces
+bind = $mod, 1, workspace, 1
+bind = $mod, 2, workspace, 2
+bind = $mod, 3, workspace, 3
+bind = $mod, 4, workspace, 4
+bind = $mod, 5, workspace, 5
+bind = $mod, 6, workspace, 6
+bind = $mod, 7, workspace, 7
+bind = $mod, 8, workspace, 8
+bind = $mod, 9, workspace, 9
+bind = $mod, 0, workspace, 10
+
+# Move active window to a workspace
+bind = $mod SHIFT, 1, movetoworkspace, 1
+bind = $mod SHIFT, 2, movetoworkspace, 2
+bind = $mod SHIFT, 3, movetoworkspace, 3
+bind = $mod SHIFT, 4, movetoworkspace, 4
+bind = $mod SHIFT, 5, movetoworkspace, 5
+bind = $mod SHIFT, 6, movetoworkspace, 6
+bind = $mod SHIFT, 7, movetoworkspace, 7
+bind = $mod SHIFT, 8, movetoworkspace, 8
+bind = $mod SHIFT, 9, movetoworkspace, 9
+bind = $mod SHIFT, 0, movetoworkspace, 10
+
+# Move workspaces between monitors
+bind = $mod ALT, H, movecurrentworkspacetomonitor, l
+bind = $mod ALT, L, movecurrentworkspacetomonitor, r
+
+# Switch through workspaces
+bind = $mod, TAB, workspace, e+1
+
+# Move window with mouse LMB
+bindm = $mod, mouse:272, movewindow
+
+# Toggle the current window in/out of a group
+bind = $mod, G, togglegroup
+
+# Media keys
+bindeld = ,XF86AudioRaiseVolume, Increase volume, exec, swayosd-client --output-volume raise
+bindeld = ,XF86AudioLowerVolume, Decrease volume, exec, swayosd-client --output-volume lower
+bindeld = ,XF86AudioMute, Mute, exec, swayosd-client --output-volume mute-toggle
+bindeld = ,XF86AudioMicMute, Mute mic, exec, swayosd-client --input-volume mute-toggle
+bindeld = ,XF86MonBrightnessUp, Increase brightness, exec, swayosd-client --brightness raise
+bindeld = ,XF86MonBrightnessDown, Decrease brightness, exec, swayosd-client --brightness lower
+
+bindld = ,XF86AudioNext, Next track, exec, swayosd-client --playerctl next
+bindld = ,XF86AudioPause, Pause, exec, swayosd-client --playerctl play-pause
+bindld = ,XF86AudioPlay, Play, exec, swayosd-client --playerctl play-pause
+bindld = ,XF86AudioPrev, Previous track, exec, swayosd-client --playerctl previous
+
+##############################
+### WINDOWS AND WORKSPACES ###
+##############################
+# Ignore maximize requests from all apps
+windowrule {
+    name = suppress-maximize-events
+    match:class = .*
+    suppress_event = maximize
+}
+
+# Fix some dragging issues with XWayland
+windowrule {
+    name = fix-xwayland-drags
+    match:class = ^$
+    match:title = ^$
+    match:xwayland = true
+    match:float = true
+    match:fullscreen = false
+    match:pin = false
+
+    no_focus = true
+}
+
+# Make terminal windows transparent
+windowrule {
+    name = terminal-transparent
+    match:class = $terminal
+    opacity = 0.8
+}
+
+# Windows that should be floating
+windowrule = tag +floating-window, match:class org.pulseaudio.pavucontrol
+windowrule = tag +floating-window, match:class nm-connection-editor
+windowrule = tag +floating-window, match:class pinentry-gtk
+
+windowrule {
+    name = floating-windows
+    match:tag = floating-window
+    float = on
+    center = on
+    size = 800 600
+    dim_around = on
+}
+
+# Browsers
+windowrule = tag +browser, match:class firefox
+windowrule = tag +browser, match:class chromium
+
+windowrule {
+    name = browsers
+    match:tag = browser
+    border_size = 0
+    rounding = 0
+    no_shadow = on
+    fullscreen_state = 1
+}
+
+workspace = f[1], gapsout:3 0 0 0, gapsin:0
+
+# Map common applications to specific workapaces
+windowrule = workspace 2, match:class firefox
+windowrule = workspace 3, match:class org.mozilla.Thunderbird
+windowrule = workspace 4, match:class chromium
+
+#################
+### AUTOSTART ###
+#################
+exec-once = uwsm-app -- swayosd-server
+exec-once = ln -sf "$(find {{ .wallpath }} -type f | shuf -n 1)" {{ .wallpath }}/current && uwsm-app -- hyprpaper
+

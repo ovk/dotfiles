@@ -1,0 +1,28 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $gitname := promptStringOnce . "gitname" "Git user name" -}}
+{{- $gitsignkey := promptStringOnce . "gitsignkey" "Git signing key" -}}
+{{- $desktop := promptBoolOnce . "desktop" "Is desktop" -}}
+
+[data]
+gitname = {{ $gitname | quote }}
+gitsignkey = {{ $gitsignkey | quote }}
+email = {{ $email | quote }}
+desktop = {{ $desktop }}
+
+{{- if $desktop }}
+wallpath = {{ promptStringOnce . "wallpath" "Path to wallpapers" | quote }}
+{{- end }}
+
+[diff]
+command = "nvim"
+args = ["-d", {{ "\"{{ .Destination }}\"" }}, {{ "\"{{ .Target }}\"" }}]
+
+[merge]
+command = "nvim"
+args = [
+    "-d",
+    "-c", "wincmd J", # Moves the target/result window to the bottom
+    {{ "\"{{ .Destination }}\"" }},
+    {{ "\"{{ .Source }}\"" }},
+    {{ "\"{{ .Target }}\"" }}
+]

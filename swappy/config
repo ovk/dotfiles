@@ -1,3 +1,0 @@
-[Default]
-save_dir=$HOME
-save_filename_format=shot-%Y%m%d-%H%M%S.png

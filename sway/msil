@@ -1,8 +1,0 @@
-# Settings specific to MSI laptop
-workspace 10:aux output eDP-1
-workspace 1:term
-
-# Two monitor layout
-output HDMI-A-1 pos 0 0 res 1920x1080@60Hz
-output eDP-1 pos 1920 0 res 1920x1080@59.934Hz
-

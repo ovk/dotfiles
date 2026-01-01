@@ -1,0 +1,195 @@
+/* From Catppuccin Frappe */
+@define-color rosewater #f2d5cf;
+@define-color flamingo #eebebe;
+@define-color pink #f4b8e4;
+@define-color mauve #ca9ee6;
+@define-color red #e78284;
+@define-color maroon #ea999c;
+@define-color peach #ef9f76;
+@define-color yellow #e5c890;
+@define-color green #a6d189;
+@define-color teal #81c8be;
+@define-color sky #99d1db;
+@define-color sapphire #85c1dc;
+@define-color blue #8caaee;
+@define-color lavender #babbf1;
+@define-color text #e5e9f0; /* Slightly more contrast and less blue */
+@define-color subtext1 #b5bfe2;
+@define-color subtext0 #a5adce;
+@define-color overlay2 #949cbb;
+@define-color overlay1 #838ba7;
+@define-color overlay0 #737994;
+@define-color surface2 #626880;
+@define-color surface1 #51576d;
+@define-color surface0 #414559;
+@define-color base #303446;
+@define-color mantle #292c3c;
+@define-color crust #232634;
+
+@keyframes blink-warning {
+    to {
+        background-color: @yellow;
+    }
+}
+
+@keyframes blink-critical {
+    to {
+        background-color: @red;
+    }
+}
+
+@keyframes urgent {
+    0% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: @surface1;
+        color: @subtext1;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Noto Sans", "Symbols Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+window#waybar {
+    background: transparent;
+    opacity: 0.85;
+    color: @text;
+}
+
+#workspaces {
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 2px;
+    background-color: @surface0;
+}
+
+#workspaces button {
+    color: @overlay0;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+#workspaces button.active {
+    color: @text;
+}
+
+#workspaces button:hover {
+    color: @text;
+    background: @surface2;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#workspaces button.urgent {
+    animation: urgent 2s infinite;
+}
+
+#window {
+    font-family: Noto Sans, sans-serif;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 2px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: @surface0;
+}
+
+#clock, #language, #pulseaudio, #tray, #memory, #cpu, #battery {
+    color: @text;
+    font-size: 14px;
+
+    background-color: @surface0;
+    padding: 0 0.5rem;
+    margin-top: 2px;
+}
+
+#clock {
+    font-weight: bold;
+    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 0.5rem;
+}
+
+#language {
+    font-weight: bold;
+}
+
+#pulseaudio.muted {
+    color: @peach;
+}
+
+#cpu.warning {
+    color: @yellow;
+}
+
+#cpu.critical {
+    color: @red;
+}
+
+#memory {
+    font-size: 13px;
+}
+
+#memory.warning {
+    color: @yellow;
+}
+
+#memory.critical {
+    color: @red;
+}
+
+#battery {
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#tray {
+    border-radius: 1rem 0px 0px 1rem;
+    margin-left: 0.5rem;
+}
+
+
+tt {
+    border: 5px solid black;
+}
+
+#clock.calendar, #calendar {
+    border: 5px solid black;
+}
+
+tooltip {
+    border-radius: 0.5rem;
+    background-color: @surface0;
+}
+
+tooltip label {
+    color: @text;
+    font-weight: bold;
+}
+
+

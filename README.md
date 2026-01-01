@@ -4,6 +4,8 @@
 
 </div>
 
+TODO: update according to new configs
+
 ## Overview
 
 This repository contains my dotfiles (those that can be safely shared).

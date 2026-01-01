@@ -1,7 +1,0 @@
-{
-  "extends": [ "desktop", "home-desktop" ],
-  "vars": {
-    "sway_config_extra": "include $HOME/.config/sway/msil"
-  }
-}
-

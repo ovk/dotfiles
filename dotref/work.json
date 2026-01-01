@@ -1,7 +1,0 @@
-{
-  "extends": [ "base" ],
-  "vars": {
-    "git_profile": "work"
-  }
-}
-
