@@ -154,6 +154,9 @@ bind = CONTROL, Print, exec, uwsm app -- hyprshot -m region --raw | satty --file
 # Floating window
 bind = $mod, F, togglefloating,
 
+# Maximized window
+bind = $mod, M, fullscreen, 1
+
 # Moving focus
 bind = $mod, left, movefocus, l
 bind = $mod, right, movefocus, r
@@ -265,17 +268,17 @@ windowrule {
     dim_around = on
 }
 
-# Browsers
-windowrule = tag +browser, match:class firefox
-windowrule = tag +browser, match:class chromium
+# Maximized windows
+windowrule = tag +maximized, match:class firefox
+windowrule = tag +maximized, match:class chromium
 
 windowrule {
-    name = browsers
-    match:tag = browser
+    name = maximized-style
+    match:tag = maximized
     border_size = 0
     rounding = 0
     no_shadow = on
-    fullscreen_state = 1
+    maximize = on
 }
 
 workspace = f[1], gapsout:3 0 0 0, gapsin:0
@@ -283,7 +286,7 @@ workspace = f[1], gapsout:3 0 0 0, gapsin:0
 # Map common applications to specific workapaces
 windowrule = workspace 2, match:class firefox
 windowrule = workspace 3, match:class org.mozilla.Thunderbird
-windowrule = workspace 4, match:class chromium
+windowrule = workspace 4, match:class org.telegram.desktop
 
 #################
 ### AUTOSTART ###
