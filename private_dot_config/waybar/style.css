@@ -70,16 +70,16 @@ window#waybar {
 }
 
 #workspaces {
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    margin-top: 2px;
+    margin-top: 0;
     background-color: @surface0;
 }
 
 #workspaces button {
     color: @overlay0;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 0.5rem;
 }
 
@@ -100,10 +100,10 @@ window#waybar {
 
 #window {
     font-family: Noto Sans, sans-serif;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    margin-top: 2px;
+    margin-top: 0;
     padding-left: 1rem;
     padding-right: 1rem;
     background-color: @surface0;
@@ -115,12 +115,12 @@ window#waybar {
 
     background-color: @surface0;
     padding: 0 0.5rem;
-    margin-top: 2px;
+    margin-top: 0;
 }
 
 #clock {
     font-weight: bold;
-    border-radius: 0px 1rem 1rem 0px;
+    border-radius: 0px 0.5rem 0.5rem 0px;
     margin-right: 0.5rem;
 }
 
@@ -169,7 +169,7 @@ window#waybar {
 }
 
 #tray {
-    border-radius: 1rem 0px 0px 1rem;
+    border-radius: 0.5rem 0px 0px 0.5rem;
     margin-left: 0.5rem;
 }
 
