@@ -24,11 +24,11 @@ During `init`, there will be prompt for a few variables:
 
 ### Screenshots
 
-![image](https://user-images.githubusercontent.com/693072/185769726-b8eeb07b-0938-4720-be8e-daf404bc6ee6.png)
+<img width="1920" height="1080" alt="20260115_19h05m44s_grim" src="https://github.com/user-attachments/assets/72559ae0-e76a-4c87-a29b-83f5c894ca0d" />
 
-![image](https://user-images.githubusercontent.com/693072/185769737-782ba3b6-ef67-47d7-8c1b-58602f1beb0c.png)
+<img width="1920" height="1080" alt="nvim" src="https://github.com/user-attachments/assets/7a7994ce-6469-4f7a-8157-dc49736a6f90" />
 
-![image](https://user-images.githubusercontent.com/693072/185769746-622331cf-5e0e-4fd1-9925-18213557234a.png)
+<img width="1920" height="1080" alt="vifm" src="https://github.com/user-attachments/assets/7a4409b3-9f3e-4f9a-8c31-98a66390326e" />
 
 ## Included configuration
 
