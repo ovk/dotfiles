@@ -115,8 +115,7 @@ fileviewer {*.doc,*.docx,*.odt},
            \<application/vnd.openxmlformats-officedocument.wordprocessingml.document>
            \<application/msword>
            \ file
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ show-sixel %c %pw %ph %pd
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm chafa %c %pd
 
 " Everything else preview in highlight
 fileviewer * highlight -O ansi -s nord %c
