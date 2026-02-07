@@ -15,3 +15,7 @@ export XCURSOR_SIZE="24"
 export HYPRCURSOR_SIZE="24"
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+
+export CONDA_ENVS_PATH="$HOME/.local/share/mamba/envs"
+export MAMBA_ROOT_PREFIX="$HOME/.local/share/mamba"
+export CONDARC="$HOME/.config/conda/condarc"
