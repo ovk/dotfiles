@@ -21,6 +21,7 @@ vim.o.backspace      = 'indent,eol,start' -- Backspace deletes across lines and 
 vim.o.history        = 100                -- History size
 vim.o.matchpairs     = '(:),{:},[:],<:>'  -- Characters that form pairs
 vim.o.clipboard      = 'unnamedplus'      -- Use '+' register for clipboard
+vim.o.jumpoptions    = 'view'             -- Don't scroll buffers so that cursor is in the center
 
 vim.o.completeopt    = 'menu,menuone,noselect'
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
@@ -72,4 +73,7 @@ vim.o.fillchars  = 'eob: ' -- Customise fill characters
 -- Disable netrw as per nvim-tree docs.
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Enable new command line and messages UI
+require('vim._core.ui2').enable({})
 
